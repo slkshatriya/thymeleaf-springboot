@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Users Form</title>
+
+    <style>
+         .card {
+            width: 400px;
+            height: 250px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border-style: solid;
+            border-color: red;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+        .card p {
+        color: #666;
+        margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>SnapDoc</h2>
+    <p>Fetch your doc easily</p>
+    <form class="form" action="/users" method="post">
+        <label for="id">Enter user ID:</label>
+        <input type="text"id="id" name="id" required>
+        <button class="btn btn-danger" type="submit">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>

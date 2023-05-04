@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>window.jsPDF = window.jspdf.jsPDF;
+var docPDF = new jsPDF();
+function print(){
+var elementHTML = document.querySelector(".card");
+docPDF.html(elementHTML, {
+ callback: function(docPDF) {
+  docPDF.save('MyAadhaarData.pdf');
+ },
+ x: 15,
+ y: 15,
+ width: 170,
+ windowWidth: 650
+});
+}</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>User Details</title>
+    <style>
+        .card {
+            width: 400px;
+            height: 210px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border-style: solid;
+            border-color: DeepSkyBlue;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+        .view{
+        margin-left: auto;
+        padding-left: 48%;
+        color: DeepSkyBlue;
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+
+        .card p {
+            margin: 0 0 10px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .card .id {
+            color: #777;
+        }
+
+        .card .email {
+            font-weight: bold;
+            color: #00a5e5;
+        }
+
+        #button{
+          margin-top: 55px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="card">
+    <h2>User Details</h2>
+    <hr>
+    <p>Name: <span th:text="${users.name}"></span></p>
+    <p>Username: <span th:text="${users.username}"></span></p>
+    <p>Email: <span class="email" th:text="${users.email}"></span></p>
+
+</div>
+<div class="view">
+    <button class="btn btn-primary" id="button" onclick="print()">Download</button>
+
+</div>
+</body>
+</html>
